@@ -4,7 +4,17 @@ require 'rubygems'
 module Dtcrandom0
   class Application
     def run
-      puts HTMLEntities.new.decode Hpricot(open('http://danstonchat.com/random0.html')).search('//div.item.item1/p.item-content[1]/a').html.gsub(/<\/?span[^>]*>/, '').gsub(/<br[^>]*>/, "\n")
+      num = ARGV[0].to_i() - 1
+      domain = 'http://danstonchat.com'
+      url = domain + '/random0.html'
+      page = Hpricot(open(url))
+      page.search('//div.item')[0..num].each{|node|
+        quote = node.search('//p.item-content/a').html()
+        permalink = domain + node.search('//p.item-meta/span/a')[0].get_attribute('href')
+        puts ' * ' + permalink + ' : '
+        puts HTMLEntities.new.decode quote.gsub(/<\/?span[^>]*>/, '').gsub(/<br[^>]*>/, "\n")
+        puts
+      }
     end
   end
 
@@ -21,3 +31,4 @@ module Dtcrandom0
     end
   end
 end
+
