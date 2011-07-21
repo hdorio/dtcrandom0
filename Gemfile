@@ -1,4 +1,6 @@
 source "http://rubygems.org"
+gem "htmlentities", ">= 4.3.0"
+gem "hpricot", ">= 0.8.4"
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"

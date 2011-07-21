@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/ledoud/dtcrandom0"
   gem.license = "MIT"
   gem.summary = %Q{gem example for my bud, print a random dtc quote}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.description = %Q{print a random dtc quote in your terminal}
   gem.email = "hadrien.dorio@gmail.com"
   gem.authors = ["Hadrien Dorio"]
   # dependencies defined in Gemfile
