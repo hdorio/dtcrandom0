@@ -9,10 +9,10 @@ module Dtcrandom0
       url = domain + '/random0.html'
       page = Hpricot(open(url))
       page.search('//div.item')[0..num].each{|node|
-        quote = node.search('//p.item-content/a').html()
-        permalink = domain + node.search('//p.item-meta/span/a')[0].get_attribute('href')
-        puts ' * ' + permalink + ' : '
-        puts HTMLEntities.new.decode quote.gsub(/<\/?span[^>]*>/, '').gsub(/<br[^>]*>/, "\n")
+        quote = node.search('//.item-content/a').html()
+        permalink = node.search('//.item-meta//span//a')[0]&.get_attribute('href')
+        puts " * %s : " % permalink
+        puts HTMLEntities.new.decode quote.gsub(/<\/?span[^>]*>/, '').gsub(/<br[^>]*>/, '')
         puts
       }
     end
