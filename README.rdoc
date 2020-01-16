@@ -17,3 +17,4 @@ Description goes here.
 Copyright (c) 2011 Hadrien Dorio. See LICENSE.txt for
 further details.
 
+test2
